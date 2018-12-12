@@ -6,20 +6,10 @@ import {
     Platform
 } from "react-native";
 import {
-    Header,
-    Title,
-    Content,
-    Button,
-    Icon,
-    Text,
-    List,
-    ListItem,
-    Thumbnail,
-    Left,
-    Right,
-    Body,
-    Container
+    Header, Title, Content, Button, Icon, Text, List, ListItem, Thumbnail,
+    Left, Right, Body, Container
 } from "native-base"
+import { fetchUsers } from '@utils/api';
 
 const img = require("../assets/icon.png");
 const datas = [
@@ -45,10 +35,24 @@ const datas = [
 
 class ContactScreen extends Component {
 
+    state = {
+        contacts: null,
+    }
+
     componentWillMount() {
         if (Platform.OS == 'android') {
             this.startHeaderHeight = 100 + StatusBar.currentHeight
         }
+    }
+
+    componentDidMount() {
+        this.getUsers()
+    }
+
+    getUsers = async () => {
+        const results = await fetchUsers()
+        this.setState({ contacts: results })
+        console.log(results)
     }
 
     render() {
@@ -81,7 +85,6 @@ class ContactScreen extends Component {
                                 </Body>
                             </ListItem>}
                     >
-
                     </List>
                 </Content>
             </Container>

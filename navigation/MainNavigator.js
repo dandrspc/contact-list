@@ -46,7 +46,7 @@ export default MainNavigator = TabNavigator(
                 </Footer>
             )
         }
-    },    
+    }, 
     {
         tabBarOptions: {
             activeTintColor: '#89D1F2',
@@ -56,7 +56,7 @@ export default MainNavigator = TabNavigator(
                 elevation: 5,
             }
         }
-    },{initialRouteName: 'Contacts'}
+    },
     
 
 );
