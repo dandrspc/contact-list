@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { fetchUsers } from '@utils/api';
-import TabNavigator from '@navigation/TabNavigator'
+import MainNavigator from '@navigation/MainNavigator'
 
 export default class App extends React.Component {
 
@@ -10,7 +10,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    //this.getUsers()
+    this.getUsers()
   }
 
   getUsers = async () => {
@@ -20,7 +20,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <TabNavigator/>
+      <MainNavigator contacts={this.state.contacts}/>
     );
   }
 }
