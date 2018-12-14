@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import ContactRow from './ContactRow'
 
 const renderItem = ({ item }) => <ContactRow key = {item.uuid} {...item} />
-const renderSectionHeader = ({ section }) => <Text>{section.title}</Text>
+const renderSectionHeader = ({ section }) => <Text style={{color: '#7C7D81'}} >{section.title}</Text>
 
 const SectionListContacts = props => {
   const contactsByLetter = props.contacts.reduce((obj, contact) => {

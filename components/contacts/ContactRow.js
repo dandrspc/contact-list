@@ -19,12 +19,20 @@ export default ContactRow = props => (
                 height: 40, width: 40, borderRadius: 20
             }}
         />
-        <View style={{ marginLeft: 20 }} >
-            <Text>{props.name}</Text>
-            <Text>{props.phone}</Text>
+        <View
+            style={{ marginLeft: 20, fontWeight: 'bold' }}
+        >
+            <Text style={{ fontWeight: 'bold', fontSize: 16 }} >{convertCase(props.name)}</Text>
+            <Text style={{ color: '#B7C8D1',}}>{(props.phone)}</Text>
         </View>
     </View>
 )
+
+//Uppercase first letter of each word
+const convertCase = name => {
+    split = name.split(' ')
+    return split.map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ')
+}
 
 const styles = StyleSheet.create({
     container: {

@@ -35,10 +35,8 @@ export default TabNavigator = createBottomTabNavigator(
             }
         },
     },
-    {
-        initialRouteName: 'Contacts'
-    },
-    {
+    {   
+        initialRouteName: "Contacts",
         tabBarOptions: {
             activeTintColor: '#89D1F2',
             inactiveTintColor: '#B7C8D1',
@@ -48,5 +46,4 @@ export default TabNavigator = createBottomTabNavigator(
             }
         }
     },
-
 );
