@@ -6,17 +6,14 @@ import {
     SafeAreaView,
     StatusBar,
     Platform,
-    ScrollView,
-    Image,
+    SectionList,
 } from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons'
 import { fetchUsers } from '@utils/api';
-import ContacRow  from '../components/contacts/ContactRow'
-import Header  from '../components/contacts/Header'
+import ContacRow from '../components/contacts/ContactRow'
+import Header from '../components/contacts/Header'
+import SectionListContacts from '../components/contacts/SectionListContacts'
 
-const renderItem = ({item}) => <ContacRow {...item} />
-const renderSetionHeader = ({section}) => <Text></Text>
- 
+
 class Contacts extends Component {
     state = {
         contacts: [],
@@ -27,7 +24,7 @@ class Contacts extends Component {
     }
 
     componentWillMount() {
-
+        //Correction for android system header
         if (Platform.OS == 'android') {
             this.startHeaderHeight = 55 + StatusBar.currentHeight
         }
@@ -37,14 +34,14 @@ class Contacts extends Component {
         const results = await fetchUsers()
         this.setState({ contacts: results })
     }
-    
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <Header startHeaderHeight = {this.startHeaderHeight} />
-                <ScrollView>
-                    {this.state.contacts.map(contact => <ContacRow key ={contact.uuid} {...contact}/>)}
-                </ScrollView>
+                <Header startHeaderHeight={this.startHeaderHeight} />
+                <SectionListContacts
+                    contacts = {this.state.contacts}
+                />
             </SafeAreaView>
         );
     }
