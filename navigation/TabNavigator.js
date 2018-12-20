@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Favorites from '@screens/Favorites'
 import Contacts from '@screens/Contacts'
 import Recent from '@screens/Recent'
+import ContactsNavigator from '@navigation/ContactsNavigator'
 
 export default TabNavigator = createBottomTabNavigator(
     {
@@ -17,7 +18,7 @@ export default TabNavigator = createBottomTabNavigator(
             }
         },
         Contacts: {
-            screen: Contacts,
+            screen: ContactsNavigator,
             navigationOptions: {
                 tabBarLabel: 'Contacts',
                 tabBarIcon: ({ tintColor }) => (

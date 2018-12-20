@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-    StyleSheet,
     SafeAreaView,
     StatusBar,
     Platform,
@@ -34,21 +33,13 @@ class Contacts extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1}}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white'}}>
                 <Header startHeaderHeight={this.startHeaderHeight} />
-                <View style={{ flex: 1, margin: 20, marginTop: 0, marginBottom: 0 }}>
-                    <SectionListContacts contacts={this.state.contacts} />
+                <View style={{ flex: 1, margin: 20, marginTop: 0, marginBottom: 0, }}>
+                    <SectionListContacts contacts={this.state.contacts} navigation = {this.props.navigation} />
                 </View>
             </SafeAreaView>
         );
     }
 }
 export default Contacts;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});

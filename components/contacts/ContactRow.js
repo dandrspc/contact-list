@@ -1,16 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     View,
     Text,
     StyleSheet,
     Image,
+    TouchableOpacity,
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons'
 
 export default ContactRow = props => (
-    <View
+    <TouchableOpacity
         key={props.uuid}
-        style={{ flexDirection: 'row', padding: 10, paddingBottom: 2 }}
+        style={{ flexDirection: 'row', padding: 10, paddingBottom: 2, }}
+        onPress = {props.onPress}
     >
         <Icon name='md-star' size={20} color={'#89D1F2'}
             style={{ margin: 5, paddingRight: 4 }} />
@@ -25,7 +27,7 @@ export default ContactRow = props => (
             <Text style={{ fontWeight: 'bold', fontSize: 16 }} >{convertCase(props.name)}</Text>
             <Text style={{ color: '#B7C8D1',}}>{(props.phone)}</Text>
         </View>
-    </View>
+    </TouchableOpacity>
 )
 
 //Uppercase first letter of each word

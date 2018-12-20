@@ -4,10 +4,18 @@ import PropTypes from 'prop-types'
 
 import ContactRow from './ContactRow'
 
-const renderItem = ({ item }) => <ContactRow key = {item.uuid} {...item} />
-const renderSectionHeader = ({ section }) => <Text style={{color: '#7C7D81'}} >{section.title}</Text>
+const renderSectionHeader = ({ section }) =>
+  <Text style={{ color: '#7C7D81', fontWeight: 'bold' }} >
+    {section.title}
+  </Text>
 
 const SectionListContacts = props => {
+  const onPress = () => {
+    props.navigation.navigate('ContactDetails')
+    console.log(props)
+  }
+  
+  const renderItem = ({ item }) => <ContactRow key={item.uuid} {...item} onPress={onPress} navigation = {props.navigation}/>
   const contactsByLetter = props.contacts.reduce((obj, contact) => {
     const firstLetter = contact.name[0].toUpperCase()
     return {
@@ -29,6 +37,7 @@ const SectionListContacts = props => {
     keyExtractor={(item, index) => item + index}
   />
 }
+
 
 SectionListContacts.propTypes = {
   contacts: PropTypes.array,
