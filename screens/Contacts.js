@@ -33,10 +33,13 @@ class Contacts extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: 'white'}}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                 <Header startHeaderHeight={this.startHeaderHeight} />
                 <View style={{ flex: 1, margin: 20, marginTop: 0, marginBottom: 0, }}>
-                    <SectionListContacts contacts={this.state.contacts} navigation = {this.props.navigation} />
+                    <SectionListContacts
+                        contacts={this.state.contacts}
+                        navigation={this.props.navigation}
+                    />
                 </View>
             </SafeAreaView>
         );

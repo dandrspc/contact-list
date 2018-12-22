@@ -1,7 +1,6 @@
 import React from 'react'
 import { SectionList, Text } from 'react-native'
 import PropTypes from 'prop-types'
-
 import ContactRow from './ContactRow'
 
 const renderSectionHeader = ({ section }) =>
@@ -9,13 +8,20 @@ const renderSectionHeader = ({ section }) =>
     {section.title}
   </Text>
 
+
 const SectionListContacts = props => {
-  const onPress = () => {
-    props.navigation.navigate('ContactDetails')
-    console.log(props)
+
+  const handleSelectContact = (contact) => {
+    props.navigation.navigate('ContactDetails', { ...contact })
+    console.log('handle contatc select')
   }
-  
-  const renderItem = ({ item }) => <ContactRow key={item.uuid} {...item} onPress={onPress} navigation = {props.navigation}/>
+
+  const renderItem = ({ item }) => <ContactRow
+    key={item.uuid} {...item}
+    navigation={props.navigation}
+    onSelectContact={handleSelectContact}
+  />
+
   const contactsByLetter = props.contacts.reduce((obj, contact) => {
     const firstLetter = contact.name[0].toUpperCase()
     return {

@@ -18,7 +18,7 @@ export default class ContactRow extends PureComponent {
             <TouchableOpacity
                 key={this.props.uuid}
                 style={{ flexDirection: 'row', padding: 10, paddingBottom: 2, }}
-                onPress={this.props.onPress}
+                onPress={() => this.props.onSelectContact(this.props)}
             >
                 <Icon name='md-star' size={20} color={'#89D1F2'}
                     style={{ margin: 5, paddingRight: 4 }} />
